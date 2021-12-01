@@ -8,6 +8,9 @@
 *.cmxs
 *.cmxa
 
+.vscode
+node_modules
+
 # ocamlbuild working directory
 _build/
 
