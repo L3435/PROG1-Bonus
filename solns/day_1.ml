@@ -48,8 +48,18 @@ let _ =
         close_out chan
     in
     let vsebina_datoteke = preberi_datoteko ("input/day_1.in") in
-    let odgovor1 = naloga1 vsebina_datoteke
-    and odgovor2 = naloga2 vsebina_datoteke
-    in
+
+    let p1_start = Sys.time () in
+    let odgovor1 = naloga1 vsebina_datoteke in
+    let t1_time = Sys.time () -. p1_start in
+	
+    let p2_start = Sys.time () in
+    let odgovor2 = naloga2 vsebina_datoteke in
+    let t2_time = Sys.time () -. p2_start in
+
+    print_endline ("P1 taken: " ^ string_of_float t1_time ^ "s");
+    print_endline ("P2 taken: " ^ string_of_float t2_time ^ "s");
+    print_endline ("Total: " ^ string_of_float (t1_time +. t2_time) ^ "s");
+
     izpisi_datoteko ("output/day_1_1.out") odgovor1;
     izpisi_datoteko ("output/day_1_2.out") odgovor2
